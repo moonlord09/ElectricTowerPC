@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="stylesheet/default.css">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="echarts.min.js"></script>
+<body>
+<div id="fcbar">
+    <div class="fcbar_head">
+        <img class="fcbar_icon" src="img/icon.png">
+        <span>监控指挥中心</span>
+    </div>
+    <div class="search_frame">
+        <div id="search1">
+            <input class="sf1" type="text" name="search" placeholder="搜索线路名称">
+            <span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 8px; margin-right: 8px; font-size: 10px;"></span>
+        </div>
+    </div>
+    <div class="fclist">
+        <ul>
+            <li class="ibh"><span class="fa fa-university fa-lg">&nbsp;&nbsp;</span>监测大厅
+            </li>
+            <li class="ibb">
+                <span class="fa fa-caret-down fa-lg" style="float: right; margin-right: 15px;"></span>在线监测
+                <span class="fa fa-wifi fa-lg" style="float: left; margin-left: 15px;">&nbsp;&nbsp;</span>
+                <ul>
+                    <li>西湖区-输电一线</li>
+                    <li>西湖区-输电一线</li>
+                    <li>西湖区-输电一线</li>
+                </ul>
+            </li>
+            <li class="ibb">
+                <span class="fa fa-caret-down fa-lg" style="float: right; margin-right: 15px;"></span>&nbsp;告警管理
+                <span class="fa fa-shield fa-lg" style="float: left; margin-left: 18px;">&nbsp;&nbsp;</span>
+                <ul>
+                    <li>告警概览</li>
+                    <li>告警查询</li>
+                </ul>
+            </li>
+            <li class="ibb">
+                <span class="fa fa-caret-down fa-lg" style="float: right; margin-right: 15px;"></span>统计分析
+                <span class="fa fa-desktop fa-lg" style="float: left; margin-left: 15px;">&nbsp;&nbsp;</span>
+                <ul>
+                    <li>数据概览</li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="head_console">
+    <div class="hc_renyuan">
+        <span class="fa fa-user-o fa-lg"></span><span>&nbsp;在岗巡检人员&nbsp;<span>888</span>&nbsp;人</span>
+    </div>
+    <div class="hc_alertnotice">
+        <span>管理员&nbsp;<span class="fa fa-caret-down fa-lg"></span></span>
+    </div>
+    <div class="admin_info">
+        <span class="fa fa-bell-o fa-lg"></span><span>&nbsp;告警&nbsp;<span>23</span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+    </div>
+</div>
+<div id="tabpage">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" style="margin-top: 15px; margin-left: 20px">
+        <!--<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">线路总览</a></li>-->
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">实时动态</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">运行趋势</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <!--<div role="tabpanel" class="tab-pane fade in active" id="home" style="position: relative">-->
+            <!--<div class="databar">-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">76</p>-->
+                    <!--<span style="color: #A3B4B4">组</span>-->
+                    <!--<br>-->
+                    <!--<span>站点组数</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">342</p>-->
+                    <!--<span style="color: #A3B4B4">个</span>-->
+                    <!--<br>-->
+                    <!--<span>站点数</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">6040</p>-->
+                    <!--<span style="color: #A3B4B4">座</span>-->
+                    <!--<br>-->
+                    <!--<span>铁塔数</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">1,432,098</p>-->
+                    <!--<span style="color: #A3B4B4">MVA</span>-->
+                    <!--<br>-->
+                    <!--<span>输电容量</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">1234</p>-->
+                    <!--<span style="color: #A3B4B4">平方公里</span>-->
+                    <!--<br>-->
+                    <!--<span>覆盖面积</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">23</p>-->
+                    <!--<span style="color: #A3B4B4">个</span>-->
+                    <!--<br>-->
+                    <!--<span>城市</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner">-->
+                    <!--<p class="data_num">438</p>-->
+                    <!--<span style="color: #A3B4B4">个</span>-->
+                    <!--<br>-->
+                    <!--<span>区县</span>-->
+                <!--</div>-->
+                <!--<div class="databarinner" style="border: none">-->
+                    <!--<p class="data_num">1235</p>-->
+                    <!--<span style="color: #A3B4B4">个</span>-->
+                    <!--<br>-->
+                    <!--<span>历史警告</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="towwerlist">-->
+                <!--<p id="blocktitle">&nbsp;&nbsp;铁塔一览</p>-->
+                <!--<div id="search2">-->
+                    <!--<input class="sf2" type="text" name="search" placeholder="搜索线路名称">-->
+                    <!--<span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 6px; margin-right: 8px; font-size: 10px;"></span>-->
+                <!--</div>-->
+                <!--<div class="listinner">-->
+                    <!--&lt;!&ndash;<div class="container-fluid">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="row" style="height: 50px">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-md-3" style="padding: 0px; height: 50px"; align="center"><p style="line-height: 50px">1组-北高峰站点<br>ZJ-XKS5634SA</p></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-md-2" style="padding: 0px"; align="center">偏转角</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-md-1" style="padding: 0px"; align="center">王师傅</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-md-3">1组-北高峰站点<br>ZJ-XKS5634SA</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-md-2">偏转角</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-md-1">王师傅</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--<table>-->
+                        <!--&lt;!&ndash;<tr class="bgcd">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td><p style="margin: 0px" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p style="line-height: 50px">偏转角</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p>王师傅</p></td>&ndash;&gt;-->
+
+
+                        <!--&lt;!&ndash;<td><span>1组-北高峰站点<br>ZJ-XKS5634SA</span><span>偏转角</span><span>王师傅</span></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr class="bgcl">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td><span>1组-北高峰站点<br>ZJ-XKS5634SA</span><span>偏转角</span><span>王师傅</span></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td><span>1组-北高峰站点<br>ZJ-XKS5634SA</span><span>偏转角</span><span>王师傅</span></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+
+                        <!--<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>-->
+                        <!--<tr class="bgcd"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                        <!--<tr class="bgcl"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                        <!--<tr class="bgcd"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                        <!--<tr class="bgcl"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                        <!--<tr class="bgcd"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                        <!--<tr class="bgcl"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                        <!--<tr class="bgcd"><td colspan="4" align="center" valign="middle">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="chart_r1" id="chart1">-->
+                <!--<script type="text/javascript">-->
+                    <!--var myChart = echarts.init(document.getElementById('chart1'))-->
+                    <!--var option = {-->
+                        <!--title: {-->
+                            <!--text: '实时风速度偏转角速度',-->
+                            <!--x: 'center',-->
+                        <!--},-->
+                        <!--xAxis: {-->
+                            <!--data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]-->
+                        <!--},-->
+                        <!--yAxis: {},-->
+                        <!--series: [{-->
+                            <!--name: '销量',-->
+                            <!--type: 'line',-->
+                            <!--smooth: true,-->
+                            <!--data: [5, 20, 36, 10, 10, 20, 24]-->
+                        <!--}]-->
+                    <!--}-->
+                    <!--myChart.setOption(option);-->
+                <!--</script>-->
+            <!--</div>-->
+            <!--<div class="chart_bot" id="chart3">-->
+                <!--<script type="text/javascript">-->
+                    <!--var myChart = echarts.init(document.getElementById('chart3'))-->
+                    <!--var option = {-->
+                        <!--title: {-->
+                            <!--text: '近月预警和告警数量统计',-->
+                            <!--x: 'center',-->
+                        <!--},-->
+                        <!--xAxis: {-->
+                            <!--data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]-->
+                        <!--},-->
+                        <!--yAxis: {},-->
+                        <!--series: [{-->
+                            <!--name: '销量',-->
+                            <!--type: 'line',-->
+                            <!--smooth: true,-->
+                            <!--data: [5, 20, 36, 10, 10, 20, 24]-->
+                        <!--}]-->
+                    <!--}-->
+                    <!--myChart.setOption(option);-->
+                <!--</script>-->
+            <!--</div>-->
+            <!--<div class="chart_r2" id="chart2">-->
+                <!--<script type="text/javascript">-->
+                    <!--var myChart = echarts.init(document.getElementById('chart2'))-->
+                    <!--var option = {-->
+                        <!--title: {-->
+                            <!--text: '实时环境温度湿度数据',-->
+                            <!--x: 'center',-->
+                        <!--},-->
+                        <!--xAxis: {-->
+                            <!--data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]-->
+                        <!--},-->
+                        <!--yAxis: {-->
+                            <!--// data: ["11.0", "13.0", "15,0", "17.0", "19.0"]-->
+                        <!--},-->
+                        <!--series: [{-->
+                            <!--name: '销量',-->
+                            <!--type: 'line',-->
+                            <!--smooth: true,-->
+                            <!--data: ["15", 17.2, 16.8, 17.4, 15.6, 18.3, 17.8]-->
+                        <!--}]-->
+                    <!--}-->
+                    <!--myChart.setOption(option);-->
+                <!--</script>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <div class="areaframe">
+                <div class="arealist">
+
+                </div>
+
+            </div>
+            <div class="areadata">
+                <p style="float: left; margin-left: 20px; margin-right: 80px; line-height: 40px">状态：<span style="color: #71BE71">运行</span></p>
+                <p style="line-height: 40px">告警状态：<span style="color: #FF6464">偏转角 35°, 一级告警</span></p>
+
+            </div>
+            <div class="areadatatb">
+                <table class="datatb">
+                    <tr class="colordark">
+                        <th class="wd130">序号</th>
+                        <th class="wd238">名称</th>
+                        <th class="wd238">数值</th>
+                        <th class="wd130">单位</th>
+                        <th class="wd238">更新时间</th>
+                    </tr>
+                    <tr>
+                        <td class="wd130">1</td>
+                        <td class="wd238">温度</td>
+                        <td class="wd238">32</td>
+                        <td class="wd130">摄氏度</td>
+                        <td class="wd238">2018/1/1 00：00</td>
+                    </tr>
+                    <tr class="colordark">
+                        <td class="wd130">2</td>
+                        <td class="wd238">日最高温度</td>
+                        <td class="wd238">32</td>
+                        <td class="wd130">摄氏度</td>
+                        <td class="wd238">2018/1/1 00：00</td>
+                    </tr>
+                    <tr>
+                        <td class="wd130">3</td>
+                        <td class="wd238">日最低温度</td>
+                        <td class="wd238">32</td>
+                        <td class="wd130">摄氏度</td>
+                        <td class="wd238">2018/1/1 00：00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    </div>
+</div>
+</body>
+</html>

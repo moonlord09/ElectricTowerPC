@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="stylesheet/default.css">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="layui/css/layui.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="echarts.min.js"></script>
+<script src="laydate/laydate.js"></script>
+
+<body>
+    <div id="fcbar">
+    <div class="fcbar_head">
+        <img class="fcbar_icon" src="img/icon.png">
+        <span>监控指挥中心</span>
+    </div>
+    <div class="search_frame">
+        <div id="search1">
+            <input class="sf1" type="text" name="search" placeholder="搜索线路名称">
+            <span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 8px; margin-right: 8px; font-size: 10px;"></span>
+        </div>
+    </div>
+        <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="width: 210px; margin-top: 20px; border-radius: 0px; background-color: #000">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="fcbar.html">监测大厅</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">在线监测</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="xianluzonglan.html">西湖区-输电一线</a></dd>
+                    <dd><a href="test.html">西湖区-输电一线</a></dd>
+                    <dd><a href="">西湖区-输电一线</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">告警管理</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">告警概览</a></dd>
+                    <dd><a href="">告警查询</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">统计分析</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">数据概览</a></dd>
+                    <dd><a href="">数据查询</a></dd>
+                </dl>
+            </li>
+        </ul>
+    <!--<div class="fclist">-->
+        <!--<ul>-->
+            <!--<li class="ibh"><span class="fa fa-university fa-lg">&nbsp;&nbsp;</span>监测大厅-->
+            <!--</li>-->
+            <!--<li class="ibb">-->
+                <!--<span class="fa fa-caret-down fa-lg" style="float: right; margin-right: 15px;"></span>在线监测-->
+                <!--<span class="fa fa-wifi fa-lg" style="float: left; margin-left: 15px;">&nbsp;&nbsp;</span>-->
+                <!--<ul>-->
+                    <!--<li>西湖区-输电一线</li>-->
+                    <!--<li>西湖区-输电一线</li>-->
+                    <!--<li>西湖区-输电一线</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="ibb">-->
+                <!--<span class="fa fa-caret-down fa-lg" style="float: right; margin-right: 15px;"></span>&nbsp;告警管理-->
+                <!--<span class="fa fa-shield fa-lg" style="float: left; margin-left: 18px;">&nbsp;&nbsp;</span>-->
+                <!--<ul>-->
+                    <!--<li>告警概览</li>-->
+                    <!--<li>告警查询</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="ibb">-->
+                <!--<span class="fa fa-caret-down fa-lg" style="float: right; margin-right: 15px;"></span>统计分析-->
+                <!--<span class="fa fa-desktop fa-lg" style="float: left; margin-left: 15px;">&nbsp;&nbsp;</span>-->
+                <!--<ul>-->
+                    <!--<li>数据概览</li>-->
+                    <!--<li></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
+    <div id="head_console">
+    <div class="hc_renyuan">
+        <span class="fa fa-user-o fa-lg"></span><span>&nbsp;在岗巡检人员&nbsp;<span style="color: #00A0C8">888</span>&nbsp;人</span>
+    </div>
+    <div class="hc_alertnotice">
+        <span>管理员&nbsp;<span class="fa fa-caret-down fa-lg"></span></span>
+    </div>
+    <div class="admin_info">
+        <span class="fa fa-bell-o fa-lg" style="font-size: 14px; line-height: 1px"></span><span>&nbsp;告警&nbsp;<span style="font-weight: 700; color: #F00">23</span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+    </div>
+</div>
+    <div id="tabpage">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" style="margin-top: 15px; margin-left: 20px">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">线路总览</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">实时动态</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">运行趋势</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home" style="position: relative">
+                <div class="databar">
+                    <div class="databarinner">
+                        <p class="data_num">76</p>
+                        <span style="color: #A3B4B4">组</span>
+                        <br>
+                        <span>站点组数</span>
+                    </div>
+                    <div class="databarinner">
+                        <p class="data_num">342</p>
+                        <span style="color: #A3B4B4">个</span>
+                        <br>
+                        <span>站点数</span>
+                    </div>
+                    <div class="databarinner">
+                        <p class="data_num">6040</p>
+                        <span style="color: #A3B4B4">座</span>
+                        <br>
+                        <span>铁塔数</span>
+                    </div>
+                    <div class="databarinner">
+                        <p class="data_num">1,432,098</p>
+                        <span style="color: #A3B4B4">MVA</span>
+                        <br>
+                        <span>输电容量</span>
+                    </div>
+                    <div class="databarinner">
+                        <p class="data_num">1234</p>
+                        <span style="color: #A3B4B4">平方公里</span>
+                        <br>
+                        <span>覆盖面积</span>
+                    </div>
+                    <div class="databarinner">
+                        <p class="data_num">23</p>
+                        <span style="color: #A3B4B4">个</span>
+                        <br>
+                        <span>城市</span>
+                    </div>
+                    <div class="databarinner">
+                        <p class="data_num">438</p>
+                        <span style="color: #A3B4B4">个</span>
+                        <br>
+                        <span>区县</span>
+                    </div>
+                    <div class="databarinner" style="border: none">
+                        <p class="data_num">1235</p>
+                        <span style="color: #A3B4B4">个</span>
+                        <br>
+                        <span>历史警告</span>
+                    </div>
+                </div>
+                <div class="towwerlist">
+                    <p id="blocktitle">&nbsp;&nbsp;铁塔一览</p>
+                    <div id="search2">
+                        <input class="sf2" type="text" name="search" placeholder="搜索线路名称">
+                        <span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 6px; margin-right: 8px; font-size: 10px;"></span>
+                    </div>
+                    <div class="listinner">
+                        <table>
+                            <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+                            <tr class="bgcd"><td colspan="3" align="center" ><div class="warncircle"></div>1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="warning">偏转角 > 20°</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                            <tr class="bgcl"><td colspan="3" align="center" ><div class="warncircle"></div>1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="warning">偏转角 > 20°</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                            <tr class="bgcd"><td colspan="3" align="center" ><div class="warncircle"></div>1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="lower">电压偏低</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                            <tr class="bgcl"><td colspan="3" align="center" >1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="normal">正常</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                            <tr class="bgcd"><td colspan="3" align="center" class="offline">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="offline">离线</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                            <tr class="bgcl"><td colspan="3" align="center" >1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="normal">正常</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                            <tr class="bgcd"><td colspan="3" align="center" class="offline">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="3" align="center" class="offline">离线</td><td colspan="1">王师傅</td><td colspan="4" align="center" valign="middle" style="border-left: 1px #E6F0F0 solid">1组-北高峰站点<br>ZJ-XKS5634SA</td><td colspan="2">偏转角</td><td colspan="1">王师傅</td></tr>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="chart_r1" id="chart1">
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('chart1'))
+                        var option = {
+                            title: {
+                                text: '实时风速度偏转角速度',
+                                x: 'center',
+                                top: 10,
+                            },
+                            legend: {
+                                data: ['风速度', '角速度'],
+                                bottom: 5,
+                            },
+                            xAxis: {
+                                data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"],
+                            },
+                            yAxis: [
+                                {
+                                    name: 'm/s',
+                                    type: 'value',
+                                    min: 11,
+                                    max: 21,
+                                    interval: 2,
+                                    boundaryGap: false,
+                                },
+
+                                {
+                                    name: '°',
+                                    type: 'value',
+                                    min: 0,
+                                    max: 10,
+                                    interval: 2,
+                                    boundaryGap: false,
+                                }
+                            ],
+                            series: [
+                                {
+                                    name: '风速度',
+                                    type: 'line',
+                                    smooth: true,
+                                    data: [11.3, 13.2, 12.6, 15.8, 18.4, 17.2, 19],
+                                    yAxisIndex: 0,
+                            },
+                                {
+                                    name: '角速度',
+                                    type: 'line',
+                                    smooth: true,
+                                    data: [2, 3, 6, 4, 5, 8, 7],
+                                    yAxisIndex: 1,
+                                }
+                            ]
+                        }
+                        myChart.setOption(option);
+                    </script>
+                </div>
+                <div class="chart_bot" id="chart3">
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('chart3'))
+                        var option = {
+                            title: {
+                                text: '近月预警和告警数量统计',
+                                x: 'center',
+                                top: 10,
+                            },
+                            legend: {
+                                data: ['预警', '告警'],
+                                bottom: 5,
+                            },
+                            xAxis: {
+                                type: 'category',
+                                data: ["19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "8月", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
+                                axisTick: {
+                                    show: false
+                                },
+                            },
+                            yAxis: {
+                                name: '个',
+                                type: 'value',
+                                min: 0,
+                                interval: 5,
+                            },
+                            series: [
+                                {
+                                    name: '预警',
+                                    type: 'bar',
+                                    stack: 'Warn',
+                                    data: [12, 16, 9, 17, 6, 11, 12, 16, 9, 17, 6, 11, 12, 16, 9, 17, 6, 11, 12, 16, 9, 17, 6, 11, 12, 16, 9, 17, 6, 11, 12],
+                                },
+                                {
+                                    name: '告警',
+                                    type: 'bar',
+                                    stack: 'Warn',
+                                    data: [2, 2, 2, 4, 3, 2, 2, 2, 2, 4, 3, 2, 2, 2, 2, 4, 3, 2, 2, 2, 2, 4, 3, 2, 2, 2, 2, 4, 3, 2, 2],
+                                },
+                            ]
+                        }
+                        myChart.setOption(option);
+                    </script>
+                </div>
+                <div class="chart_r2" id="chart2">
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('chart2'))
+                        var option = {
+                            title: {
+                                text: '实时环境温度湿度数据',
+                                x: 'center',
+                                top: 10,
+                            },
+                            legend: {
+                                data: ['温度', '湿度'],
+                                bottom: 5,
+                            },
+                            xAxis: {
+                                data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]
+                            },
+                            yAxis: [{
+                                min: 11,
+                                max: 19,
+                                interval: 2,
+                                name: '摄氏度',
+                            },
+                                {
+                                    name: '湿度',
+                                    min: 10,
+                                    max: 50,
+                                    interval: 10,
+                            }
+                                ],
+                            series: [{
+                                name: '温度',
+                                type: 'line',
+                                smooth: true,
+                                data: [15, 17.2, 16.8, 17.4, 15.6, 18.3, 17.8],
+                                yAxisIndex: 0,
+                            },
+                                {
+                                    name: '湿度',
+                                    type: 'line',
+                                    smooth: true,
+                                    data: [13, 16.4, 16.8, 18.2, 14.3, 12.2, 32],
+                                    yAxisIndex: 1,
+                                },
+                            ]
+                        }
+                        myChart.setOption(option);
+                    </script>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <div class="areaframe">
+                    <div class="arealist">
+                        <p style="margin-bottom: 0px">西湖区-输电一线</p>
+                        <div class="list1">
+                            <ul><span class="glyphicon glyphicon-chevron-down"></span>三墩镇组
+                                <li><span class="
+glyphicon glyphicon-chevron-right"></span>双桥站点</li>
+                                <li><span class="
+glyphicon glyphicon-chevron-right"></span>绕城站点</li>
+                                <li><span class="
+glyphicon glyphicon-chevron-right"></span>山联站点</li>
+                                <li><span class="glyphicon glyphicon-chevron-down"></span>华联站点
+                                    <ul>
+                                        <li>ZJ-XKS5634SA</li>
+                                        <li>ZJ-XKS5634SA</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul><span class="
+glyphicon glyphicon-chevron-right"></span>双浦镇组</ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="areadata">
+                    <p style="float: left; margin-left: 20px; margin-right: 80px; line-height: 40px">状态：<span style="color: #71BE71">运行</span></p>
+                    <p style="line-height: 40px">告警状态：<span style="color: #FF6464">偏转角 35°, 一级告警</span></p>
+                </div>
+                <div class="areadatatb">
+                    <table class="datatb">
+                        <tr class="colordark">
+                            <th class="wd130">序号</th>
+                            <th class="wd238">名称</th>
+                            <th class="wd238">数值</th>
+                            <th class="wd130">单位</th>
+                            <th class="wd238">更新时间</th>
+                        </tr>
+                        <tr>
+                            <td class="wd130">1</td>
+                            <td class="wd238">温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                        <tr class="colordark">
+                            <td class="wd130">2</td>
+                            <td class="wd238">日最高温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                        <tr>
+                            <td class="wd130">3</td>
+                            <td class="wd238">日最低温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                        <tr class="colordark">
+                            <td class="wd130">2</td>
+                            <td class="wd238">日最高温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                        <tr>
+                            <td class="wd130">3</td>
+                            <td class="wd238">日最低温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                        <tr class="colordark">
+                            <td class="wd130">2</td>
+                            <td class="wd238">日最高温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                        <tr>
+                            <td class="wd130">3</td>
+                            <td class="wd238">日最低温度</td>
+                            <td class="wd238">32</td>
+                            <td class="wd130">摄氏度</td>
+                            <td class="wd238">2018/1/1 00：00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+                <div class="areaframe">
+                    <div class="arealist">
+                        <p style="margin-bottom: 0px">西湖区-输电一线</p>
+                        <div class="list1">
+                            <ul><span class="glyphicon glyphicon-chevron-down"></span>三墩镇组
+                                <li><span class="
+glyphicon glyphicon-chevron-right"></span>双桥站点</li>
+                                <li><span class="
+glyphicon glyphicon-chevron-right"></span>绕城站点</li>
+                                <li><span class="
+glyphicon glyphicon-chevron-right"></span>山联站点</li>
+                                <li><span class="glyphicon glyphicon-chevron-down"></span>华联站点
+                                    <ul>
+                                        <li>ZJ-XKS5634SA</li>
+                                        <li>ZJ-XKS5634SA</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul><span class="
+glyphicon glyphicon-chevron-right"></span>双浦镇组</ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="areadata">
+                    <p style="float: left; margin-left: 20px; margin-right: 20px; line-height: 40px">选择日期</p>
+                    <input type="text" class="datebox" placeholder="1999-1-1" id="date1" style="text-align: center">
+                    <input type="button" value="查询" class="datebtn">
+                    <script>
+                        laydate.render({
+                            elem: '#date1'
+                            ,type: 'month'
+                        });
+                    </script>
+                </div>
+                <div class="areadatatb2">
+                    <div class="chart_box">
+                        <p>温度</p>
+                        <div class="chartboxinner" id="chart4">
+                            <script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart4'))
+                                var option = {
+                                    // title: {
+                                    //     text: '实时风速度偏转角速度',
+                                    //     x: 'center',
+                                    // },
+                                    xAxis: {
+                                        data: ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
+                                    },
+                                    yAxis: {
+                                        type: 'value',
+                                        name: '℃',
+                                        min: '11',
+                                        max: '19',
+                                        interval: 2,
+                                        data: [11, 13, 15, 17, 19]
+                                    },
+                                    series: [{
+                                        name: '销量',
+                                        type: 'line',
+                                        smooth: true,
+                                        data: [12.8, 13.4, 13, 13.2, 13.8, 14.3, 13.2, 16.4, 15, 16, 15.7, 17.1, 17.5, 17.8, 18.3, 18.9, 19, 18.3, 17.6, 16.3, 15.4, 14.8, 13.9, 12.7]
+                                    }]
+                                }
+                                myChart.setOption(option);
+                            </script>
+                        </div>
+                    </div>
+                    <div class="chart_box">
+                        <p>湿度</p>
+                        <div class="chartboxinner" id="chart5">
+                            <script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart5'))
+                                var option = {
+                                    // title: {
+                                    //     text: '实时风速度偏转角速度',
+                                    //     x: 'center',
+                                    // },
+                                    xAxis: {
+                                        data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]
+                                    },
+                                    yAxis: {
+                                        name: 'm/s',
+                                    },
+                                    series: [{
+                                        name: '销量',
+                                        type: 'line',
+                                        smooth: true,
+                                        data: [5, 20, 36, 10, 10, 20, 24]
+                                    }]
+                                }
+                                myChart.setOption(option);
+                            </script>
+                        </div>
+                    </div>
+                    <div class="chart_box">
+                        <p>风力</p>
+                        <div class="chartboxinner" id="chart6">
+                            <script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart6'))
+                                var option = {
+                                    // title: {
+                                    //     text: '实时风速度偏转角速度',
+                                    //     x: 'center',
+                                    // },
+                                    xAxis: {
+                                        data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]
+                                    },
+                                    yAxis: {},
+                                    series: [{
+                                        name: '销量',
+                                        type: 'line',
+                                        smooth: true,
+                                        data: [5, 20, 36, 10, 10, 20, 24]
+                                    }]
+                                }
+                                myChart.setOption(option);
+                            </script>
+                        </div>
+                    </div>
+                    <div class="chart_box">
+                        <p>偏转角</p>
+                        <div class="chartboxinner" id="chart7">
+                            <script type="text/javascript">
+                                var myChart = echarts.init(document.getElementById('chart7'))
+                                var option = {
+                                    // title: {
+                                    //     text: '实时风速度偏转角速度',
+                                    //     x: 'center',
+                                    // },
+                                    xAxis: {
+                                        data: ["0:00", "4:00", "8:00", "12:00", "16:00", "20:00", "24:00"]
+                                    },
+                                    yAxis: {},
+                                    series: [{
+                                        name: '销量',
+                                        type: 'line',
+                                        smooth: true,
+                                        data: [5, 20, 36, 10, 10, 20, 24]
+                                    }]
+                                }
+                                myChart.setOption(option);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="layui/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('element', function(){
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+            //监听导航点击
+            element.on('nav(demo)', function(elem){
+                //console.log(elem)
+                layer.msg(elem.text());
+            });
+        });
+    </script>
+</body>
+</html>

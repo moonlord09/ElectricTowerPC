@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="stylesheet/default.css">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="layui/css/layui.css">
+<body>
+	<div id="fcbar">
+		<div class="fcbar_head">
+			<img class="fcbar_icon" src="img/icon.png">
+			<span>监控指挥中心</span>
+		</div>
+		<div class="search_frame">
+			<div id="search1">
+				<input class="sf1" type="text" name="search" placeholder="搜索线路名称">
+				<span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 8px; margin-right: 8px; font-size: 10px;"></span>
+			</div>
+		</div>
+		<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="width: 210px; margin-top: 20px; border-radius: 0px; background-color: #000">
+			<li class="layui-nav-item layui-nav-itemed">
+				<a href="fcbar.html"><span class="layui-icon layui-icon-home" style="margin-right: 5px"></span>监测大厅</a>
+			</li>
+			<li class="layui-nav-item">
+				<a href="javascript:;"><span class="layui-icon layui-icon-find-fill" style="margin-right: 5px"></span>在线监测</a>
+				<dl class="layui-nav-child">
+					<dd><a href="xianluzonglan.html"><span class="layui-icon layui-icon-location" style="margin-right: 5px"></span>西湖区-输电一线</a></dd>
+					<dd><a href="test.html"><span class="layui-icon layui-icon-location" style="margin-right: 5px"></span>西湖区-输电一线</a></dd>
+					<dd><a href=""><span class="layui-icon layui-icon-location" style="margin-right: 5px"></span>西湖区-输电一线</a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item">
+				<a href="javascript:;"><span class="layui-icon layui-icon-notice" style="margin-right: 5px"></span>告警管理</a>
+				<dl class="layui-nav-child">
+					<dd><a href=""><span class="layui-icon layui-icon-survey" style="margin-right: 5px"></span>告警概览</a></dd>
+					<dd><a href=""><span class="layui-icon layui-icon-list" style="margin-right: 5px"></span>告警查询</a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item">
+				<a href="javascript:;"><span class="layui-icon layui-icon-read" style="margin-right: 5px"></span>统计分析</a>
+				<dl class="layui-nav-child">
+					<dd><a href=""><span class="layui-icon layui-icon-file" style="margin-right: 5px"></span>数据概览</a></dd>
+					<dd><a href=""><span class="layui-icon layui-icon-list" style="margin-right: 5px"></span>数据查询</a></dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+	<div id="head_console">
+		<div class="hc_renyuan">
+			<span class="fa fa-user-o fa-lg"></span><span>&nbsp;在岗巡检人员&nbsp;<span>888</span>&nbsp;人</span>
+		</div>
+		<div class="hc_alertnotice">
+			<span>管理员&nbsp;<span class="fa fa-caret-down fa-lg"></span></span>
+		</div>
+		<div class="admin_info">
+			<span class="fa fa-bell-o fa-lg"></span><span>&nbsp;告警&nbsp;<span>23</span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+		</div>
+	</div>
+	<div id="wmf">
+		<div class="shudiangaik">
+			<p>&nbsp;&nbsp;输电概况</p>
+			<div class="sdgk_2">
+				<span>输电容量 <a class="dr" style="color: #A0B4B4">MVA</a></span>
+				<br>
+				<br>
+				<span id="span1">7,895,213</span>
+				<img class="icon" src="img/if_a_2_2578131.png" alt="">
+				<div class="divider1"></div>
+				<div class="bottominfo_1">
+					<p id="num_1">32</p>
+					<p id="span2">线路 <a class="dr" style="color: #A0B4B4">条</a></p>
+				</div>
+				<div class="bottominfo_1">
+					<p id="num_1">1,388</p>
+					<p id="span2">站点 <a class="dr" style="color: #A0B4B4">个</a></p>
+				</div>
+				<div class="bottominfo_1" id="binfo3">
+					<p id="num_1">1,543,231</p>
+					<p id="span2">铁塔 <a class="dr" style="color: #A0B4B4">座</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="fugaiquyu">
+			<p>&nbsp;&nbsp;覆盖区域</p>
+			<div class="fgqy_2">
+				<span>覆盖面积 <a class="dr" style="color: #A0B4B4">平方公里</a></span>
+				<br>
+				<br>
+				<span id="span3">67,928</span>
+				<img src="img/if_a_5_2578124.png" alt="" class="icon">
+				<div class="divider2"></div>
+				<div class="bottominfo_1">
+					<p id="num_1">15</p>
+					<p id="span2">城市</p>
+				</div>
+				<div class="bottominfo_1">
+					<p id="num_1">43</p>
+					<p id="span2">区县</p>
+				</div>
+				<div class="bottominfo_1" id="binfo3">
+					<p id="num_1">1,026</p>
+					<p id="span2">乡镇</p>
+				</div>
+			</div>
+		</div>
+		<div class="huanjingjiance">
+			<p>&nbsp;&nbsp;环境监测</p>
+			<div class="hjjc_2">
+				<div class="hjjcfa1">
+					<p>星期四</p>
+					<p style="font-size: 14px">2018年2月7日</p>
+					<p style="font-size: 24px">13:56 <span style="font-size: 14px">44</span></p>
+					<br>
+					<p style="font-size: 14px">已持续监测</p>
+					<p  style="font-size: 18px">8754.2 小时</p>
+				</div>
+				<div class="hjjcfa2">
+					<p style="font-size: 18px; margin-top: 20px">浙江 杭州</p>
+					<img src="img/Bitmap.png" alt="">
+					<p style="font-size: 14px">18/-2℃</p>
+					<p>西风<3级</p>
+				</div>
+			</div>
+
+		</div>
+		<div class="btmap" id="main">
+			<img src="img/map.png" alt="">
+		</div>
+		<div class="tietajianxun">
+			<p>&nbsp;&nbsp;铁塔简讯</p>
+			<div id="search2">
+				<input class="sf2" type="text" name="search" placeholder="搜索线路名称">
+				<span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 8px; margin-right: 8px; font-size: 10px;"></span>
+			</div>
+			<div class="ttjx_2">
+				<ul>
+					<li><div class="warncircle"></div><div class="ttxx"><p>西湖区-输电一线ZJ-XKS5634SA</p></div><span class="jiaodu">偏转角</span><img
+							src="img/Bitmap2.png" alt="" class="weathericonsmall"></li>
+					<li><div class="warncircle"></div><div class="ttxx"><p>西湖区-输电一线ZJ-XKS5634SA</p></div></li>
+					<li><div class="warncircle"></div><div class="ttxx"><p>西湖区-输电一线ZJ-XKS5634SA</p></div></li>
+					<li><div class="warncircle"></div><div class="ttxx"><p>西湖区-输电一线ZJ-XKS5634SA</p></div></li>
+					<li><div class="warncircle"></div><div class="ttxx"><p>西湖区-输电一线ZJ-XKS5634SA</p></div></li>
+				</ul>
+			</div>
+		</div>
+		<div class="jiankongrizhi">
+			<p>&nbsp;&nbsp;监控日志</p>
+			<div id="search2">
+				<input class="sf2" type="text" name="search" placeholder="搜索线路名称">
+				<span class="fa fa-search fa-lg" style="float: right; color: #465050; margin-top: 8px; margin-right: 8px; font-size: 10px;"></span>
+			</div>
+			<div class="jkrz_2">
+				<p>2018-02-02:上城区-输电四线 ZJ-XKS5634SA 发出电压偏低 预警；</p>
+				<p>2018-02-02:负责人 王大宝 安排 巡检员 天成名 对 上城区-输电四线 ZJ-XKS5634SA 发出电压偏低 预警进行处理；</p>
+				<p>2018-02-02:巡检员 对 上城区-输电四线 ZJ-XKS5634SA 发出电压偏低 预警进行处理，处理结果为：电池已更换，恢复正常；</p>
+				<p>2018-02-02:上城区-输电四线 ZJ-XKS5634SA 离线，请注意和安排人员巡检；</p>
+				<p>2018-02-02:上城区-输电四线 ZJ-XKS5634SA 偏转角 > 18°，有很大风险，请尽快安排巡检工作人员跟进和处理；</p>
+			</div>
+		</div>
+	</div>
+	<script src="layui/layui.js" charset="utf-8"></script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	<script>
+        layui.use('element', function(){
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+            //监听导航点击
+            element.on('nav(demo)', function(elem){
+                //console.log(elem)
+                layer.msg(elem.text());
+            });
+        });
+	</script>
+</body>
+</html>
